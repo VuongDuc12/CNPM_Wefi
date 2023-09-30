@@ -1,0 +1,2 @@
+
+    label.image = image
