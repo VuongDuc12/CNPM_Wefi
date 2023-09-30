@@ -1,0 +1,75 @@
+// main.js
+document.addEventListener("DOMContentLoaded", function () {
+    const inputElement = document.querySelector(".sotiennhap");
+    const balanceElement = document.querySelector(".sodu");
+
+    // Khởi tạo số dư ban đầu
+    let balance = 0;
+
+    // Cập nhật số dư ban đầu trên giao diện
+    balanceElement.textContent = `Số dư: ${balance}`;
+
+    // Xử lý sự kiện khi người dùng nhấn nút "Nạp"
+    document.querySelector(".nap").addEventListener("click", function () {
+        // Lấy giá trị nhập vào từ input
+        const inputValue = parseInt(inputElement.value);
+
+        // Kiểm tra xem giá trị nhập vào có hợp lệ hay không
+        if (!isNaN(inputValue) && inputValue > 0) {
+            // Cộng giá trị nhập vào vào số dư hiện tại
+            balance += inputValue;
+
+            // Cập nhật số dư trên giao diện
+            balanceElement.textContent = `Số dư: ${balance}`;
+
+            // Xóa giá trị nhập vào từ input
+            inputElement.value = "";
+        } else {
+            // Hiển thị thông báo lỗi nếu giá trị nhập vào không hợp lệ
+            alert("Vui lòng nhập số tiền hợp lệ.");
+        }
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    // Lấy tham chiếu đến phần tử input có class là "timkiem"
+    const inputElement = document.querySelector(".timkiem");
+    const khongtimthay = document.querySelector(".khongthaysp");
+
+    // Lấy danh sách tất cả các món nước trong danh sách có class là "thongtintrainuoc"
+    const drinksList = document.querySelectorAll(".thongtintrainuoc");
+
+    // Thêm sự kiện "input" cho phần tử input
+    inputElement.addEventListener("input", function () {
+        // Lấy giá trị nhập vào từ thanh tìm kiếm và chuyển đổi thành chữ thường
+        const searchText = inputElement.value.toLowerCase();
+
+        // Đặt một biến để theo dõi số sản phẩm tìm thấy
+        var dem = 0;
+
+        // Duyệt qua danh sách các món nước
+        drinksList.forEach(function (drink) {
+            // Lấy tên món nước và chuyển đổi thành chữ thường
+            const drinkName = drink.querySelector("h2").textContent.toLowerCase();
+
+            // Kiểm tra xem tên món nước có chứa từ khóa tìm kiếm không
+            if (drinkName.includes(searchText)) {
+                // Hiển thị món nước nếu phù hợp
+                drink.style.display = "block";
+
+                // Tăng biến đếm sản phẩm tìm thấy
+                dem = dem + 1;
+            } else {
+                // Ẩn món nước nếu không phù hợp
+                drink.style.display = "none";
+            }
+        });
+
+        // Kiểm tra nếu không có sản phẩm nào được tìm thấy
+        if (dem === 0) {
+            khongtimthay.style.display = "block";
+        } else {
+            // Ẩn phần tử khongtimthay nếu có sản phẩm được tìm thấy
+            khongtimthay.style.display = "none";
+        }
+    });
+});

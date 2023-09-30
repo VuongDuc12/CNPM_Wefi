@@ -1,0 +1,135 @@
+
+
+
+.container{
+    position: absolute;
+    background-color: azure;
+    
+   
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+}
+.container .anhnen{
+    
+    position: absolute;
+    height: 100%;
+    display: block;
+    background-repeat: no-repeat;
+}
+p,
+h1,
+h2,
+h3 {
+    margin: 5px;
+}
+.content {
+    position: fixed;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 500px;
+
+}
+.content .header {
+    background-color: rgb(36, 36, 169) ;
+    color: aliceblue;
+    padding: 10px 20px ;
+}
+.content .header h1 {
+    margin: 0px;
+
+    font-size: 40px;
+    font-family: cursive;
+    color: rgb(231, 91, 182);
+}
+.content .header h2 {
+    font-size: 20px;
+    opacity: 0.8;
+}
+.content .header .gioithieunhom {
+    font-size: 12px;
+    opacity: 0.5;
+}
+.content .header .sotiennhap {
+   background-color: rgb(5,-5,-48);
+   color: aliceblue;
+   border: 0px;
+   padding: 4px 7px;
+   border-radius: 6px;
+   margin-top: 10px;
+   margin-left: 5px;
+   width: 50%;
+}
+.content .header .nap {
+
+    font-size: 13px;
+    opacity: 0.6;
+}
+.content .header .nap:hover {
+    cursor: pointer;
+    font-size: 13px;
+    opacity:1;
+}
+.content .header .sotiennhap {
+    font-size: 13px;
+    opacity: 0.6;
+}
+.content .header .sonhap {
+    font-size: 15px;
+    opacity: 0.8;
+    padding: 4px 7px;
+
+    
+}
+.content .list{
+    position: relative;
+    background: white;
+    padding: 20px;
+    max-height: 300px ;
+    overflow: scroll;
+}
+
+.content .list >.thongtintrainuoc {
+    display: grid;
+    grid-template-columns: 40px auto;
+    gap: 10px;
+
+}
+
+.content .list img {
+width: 60px;
+height: 50px;
+
+}
+
+/* main.css */
+.oke{
+    display: flex;
+    justify-content: space-between;
+    height: 28px;
+}
+.oke .sodu{
+    line-height: 28px !important;
+}
+.timkiem {
+    
+    background-color: rgb(5,-5,-48);
+   color: aliceblue;
+   border: 0px;
+   padding: 4px 7px;
+   border-radius: 6px;
+   margin-top: 5px;
+   margin-left: 5px;
+   width: 30%;
+   font-size: 13px;
+    opacity: 0.6;
+}
+.list .khongthaysp{
+    display: none;
+}
+
