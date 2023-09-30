@@ -19,6 +19,7 @@
     
     position: absolute;
     height: 100%;
+
     display: block;
     background-repeat: no-repeat;
 }
@@ -28,7 +29,17 @@ h2,
 h3 {
     margin: 5px;
 }
+.clickmuahang{
+    position: absolute;
+    
+}
+.clickmuahang button {
+    padding: 7px;
+    border-radius: 16px;
+    background-color: rgb(248, 89, 182);
+}
 .content {
+    display: none;
     position: fixed;
     border-radius: 10px;
     overflow: hidden;

@@ -2,6 +2,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const inputElement = document.querySelector(".sotiennhap");
     const balanceElement = document.querySelector(".sodu");
+    
+
 
     // Khởi tạo số dư ban đầu
     let balance = 0;
@@ -54,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Kiểm tra xem tên món nước có chứa từ khóa tìm kiếm không
             if (drinkName.includes(searchText)) {
                 // Hiển thị món nước nếu phù hợp
-                drink.style.display = "block";
+                drink.style.display = "grid";
 
                 // Tăng biến đếm sản phẩm tìm thấy
                 dem = dem + 1;
@@ -74,4 +76,23 @@ document.addEventListener("DOMContentLoaded", function () {
             khongtimthay.textContent = "";
         }
     });
+
+    // Lấy tham chiếu đến phần tử nút "Mua hàng tại đây"
+    const muahangButton = document.querySelector(".muahangtaiday");
+
+    // Lấy tham chiếu đến phần tử content
+    const contentElement = document.querySelector(".content");
+
+    // Ẩn phần tử content ban đầu
+    contentElement.style.display = "none";
+
+    // Thêm sự kiện click cho nút "Mua hàng tại đây"
+    muahangButton.addEventListener("click", function () {
+        // Hiển thị phần tử content khi nút được nhấn
+        contentElement.style.display = "block";
+    });
 });
+
+
+
+
