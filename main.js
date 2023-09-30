@@ -60,16 +60,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 dem = dem + 1;
             } else {
                 // Ẩn món nước nếu không phù hợp
+                
                 drink.style.display = "none";
             }
         });
 
         // Kiểm tra nếu không có sản phẩm nào được tìm thấy
         if (dem === 0) {
-            khongtimthay.style.display = "block";
+            khongtimthay.textContent = "Không tìm thấy sản phẩm.";
+
         } else {
             // Ẩn phần tử khongtimthay nếu có sản phẩm được tìm thấy
-            khongtimthay.style.display = "none";
+            khongtimthay.textContent = "";
         }
     });
 });
