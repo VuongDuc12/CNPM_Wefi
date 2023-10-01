@@ -85,11 +85,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Ẩn phần tử content ban đầu
     contentElement.style.display = "none";
-
+    const content = document.querySelector(".content");
     // Thêm sự kiện click cho nút "Mua hàng tại đây"
     muahangButton.addEventListener("click", function () {
         // Hiển thị phần tử content khi nút được nhấn
         contentElement.style.display = "block";
+      
     });
 });
 
