@@ -92,11 +92,37 @@ document.addEventListener("DOMContentLoaded", function () {
         contentElement.style.display = "block";
       
     });
+    
 
-    const nutgiohang =document.querySelector(".dathang");
-    const giohang =document.querySelector(".giohang");
-    nutgiohang.addEventListener("click", function () {
-        giohang.style.display = "block";
+
+
+    const nutgiohang = document.querySelectorAll(".dathang");
+    const giohang = document.querySelector(".giohang");
+    
+    nutgiohang.forEach(function (button, index) {
+        button.addEventListener("click", function (event) {
+            var btnItem = event.target;
+            var product = btnItem.closest(".thongtintrainuoc"); // Sử dụng closest để tìm phần tử cha gần nhất
+            var productimg = product.querySelector("img");
+            var productname = product.querySelector(".detail h2").textContent; // Lấy nội dung của thẻ h2
+            var productgia = product.querySelector(".detail span").textContent; // Lấy nội dung của thẻ span (giá)
+            
+            // Hiển thị phần giohang và cập nhật thông tin sản phẩm
+            giohang.style.display = "block";
+            var giohangimg = giohang.querySelector(".anhnuoc img");
+            var giohangname = giohang.querySelector(".detail h2");
+            var giohanggia = giohang.querySelector(".detail span");
+    
+            giohangimg.src = productimg.src;
+            giohangname.textContent = productname;
+            giohanggia.textContent = productgia;
+        });
+    });
+    
+   
+    const iconclosesanpham =document.querySelector(".iconclosesanpham");
+    iconclosesanpham.addEventListener("click", function () {
+        giohang.style.display = "none";
 
     });
 });

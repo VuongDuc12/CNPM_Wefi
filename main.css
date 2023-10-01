@@ -178,18 +178,22 @@ height: 50px;
 }
 .giohang {
     position:fixed;
-    display: none;
+    display: none ;
     width: 300px;
     height: 250px;
     background-color: rgb(203, 63, 166);
+    border: 2px solid;
+    border-radius: 16px;
     
 }
 .giohang .anhnuoc{
     background-color: white;
+    border-radius: 16px;
 }
 .giohang .anhnuoc >img {
     width: 100px;
     margin-left: 90px;
+    height: 100px;
 }
 .giohang .soluong{
 
@@ -225,6 +229,20 @@ height: 50px;
 }
 .themgiohangvadathang .nutmuahang:hover {
     background-color: rgb(233, 30, 30);
+}
+.giohang .iconclosesanpham {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+}
+.iconclosesanpham button {
+
+    background-color: transparent; /* Loại bỏ màu nền */
+    border: none; /* Loại bỏ viền */
+    outline: none; 
+    cursor: pointer;
 }
 
 
