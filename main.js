@@ -92,6 +92,13 @@ document.addEventListener("DOMContentLoaded", function () {
         contentElement.style.display = "block";
       
     });
+
+    const nutgiohang =document.querySelector(".dathang");
+    const giohang =document.querySelector(".giohang");
+    nutgiohang.addEventListener("click", function () {
+        giohang.style.display = "block";
+
+    });
 });
 
 
