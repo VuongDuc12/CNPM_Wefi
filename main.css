@@ -115,7 +115,7 @@ h3 {
 
 .content .list >.thongtintrainuoc {
     display: grid;
-    grid-template-columns: 40px 350px 30px;
+    grid-template-columns: 40px 180px 160px 30px;
     gap: 10px;
 
 }
@@ -131,6 +131,22 @@ h3 {
     border: none; /* Loại bỏ viền */
     outline: none; 
     cursor: pointer;
+}
+.thongtintrainuoc .soluong{
+    display: block;
+
+}
+.thongtintrainuoc .soluong > h3 {
+    font-size: 12px;
+    display: inline-block;
+}
+.thongtintrainuoc .soluong > input {
+    font-size: 12px;
+    width: 30px;
+}
+.thongtintrainuoc .soluong > p {
+    font-size: 12px;
+   
 }
 .content .list img {
 width: 60px;
@@ -163,7 +179,52 @@ height: 50px;
 .giohang {
     position:fixed;
     display: block;
-    width: 100px;
-    background-color: black;
+    width: 300px;
+    height: 250px;
+    background-color: rgb(203, 63, 166);
     
 }
+.giohang .anhnuoc{
+    background-color: white;
+}
+.giohang .anhnuoc >img {
+    width: 100px;
+    margin-left: 90px;
+}
+.giohang .soluong{
+
+    display: block;
+    height: 40px;
+}
+.giohang .soluong >h3 {
+    display: inline-block;
+}
+.giohang .soluong input {
+    display: inline-block;
+
+    width: 40px;
+}
+.giohang .soluong .sanphamdangco {
+    display: inline-block;
+
+    width: 100px;
+    font-size: 10px;
+    
+    
+   
+}
+.themgiohangvadathang{
+    margin: 20px 40px;
+}
+.themgiohangvadathang button {
+    padding : 5px;
+    cursor: pointer;
+}
+.themgiohangvadathang .nuthtemgiohang:hover {
+    background-color: blanchedalmond;
+}
+.themgiohangvadathang .nutmuahang:hover {
+    background-color: rgb(233, 30, 30);
+}
+
+
