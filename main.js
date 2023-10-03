@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
             khongtimthay.textContent = "";
         }
     });
-
     // Lấy tham chiếu đến phần tử nút "Mua hàng tại đây"
     const muahangButton = document.querySelector(".muahangtaiday");
 
