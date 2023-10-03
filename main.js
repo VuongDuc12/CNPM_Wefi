@@ -118,7 +118,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
     
-   
     const iconclosesanpham =document.querySelector(".iconclosesanpham");
     iconclosesanpham.addEventListener("click", function () {
         giohang.style.display = "none";
