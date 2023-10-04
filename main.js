@@ -3,9 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputElement = document.querySelector(".sotiennhap");
     const balanceElement = document.querySelector(".sodu");
     
-
-
-    // Khởi tạo số dư ban đầu
+    // Khoi tao so du ban dau
     let balance = 0;
 
     // Cập nhật số dư ban đầu trên giao diện
