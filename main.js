@@ -90,9 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
       
     });
     
-
-
-
     const nutgiohang = document.querySelectorAll(".dathang");
     const giohang = document.querySelector(".giohang");
     
