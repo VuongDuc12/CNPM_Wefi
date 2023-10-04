@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputElement = document.querySelector(".sotiennhap");
     const balanceElement = document.querySelector(".sodu");
     
-    // Khoi tao so du ban dau
+    //Khoi tao so du ban dau
     let balance = 0;
 
     // Cập nhật số dư ban đầu trên giao diện
@@ -119,7 +119,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 });
-
-
-
-
