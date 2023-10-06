@@ -1,8 +1,12 @@
 // main.js
+var soduhientai =0;
+var tongthanhtoan =0;
+var dem =0;
+
 document.addEventListener("DOMContentLoaded", function () {
     const inputElement = document.querySelector(".sotiennhap");
     const balanceElement = document.querySelector(".sodu");
-    
+   
 
 
     let balance = 0;
@@ -14,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!isNaN(inputValue) && inputValue > 0) {
             balance += inputValue;
+            soduhientai = parseInt(balance);
 
             balanceElement.textContent = `Số dư: ${balance}`;
 
@@ -41,7 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 drink.style.display = "grid";
 
                 dem = dem + 1;
-            } else {
+            } 
+            else {
                 
                 drink.style.display = "none";
             }
@@ -102,8 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
         contentElement.style.display = "none";
 
     });
-    var dem = 0;
-    var tongthanhtoan =0;
+    
+
     var listgiohang = document.querySelector(".header_card-list-items"); // Thêm "document."
     var okeluon = document.querySelector(".header_card-list");
     const nuthtemgiohang = document.querySelector(".nuthtemgiohang");
@@ -114,15 +120,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const soluong = parseInt(productsoluongtext.value);
 
         if (!isNaN(soluong) && soluong > 0) {
-            dem+=1;
+            
 
         giohang.style.display = "none"; 
         var notice = document.querySelector(".header_card-notice");
+        var notice_dem = document.querySelector(".header_card-notice").textContent;
+        var dem = parseInt(notice_dem);
+        dem+=1;
         notice.textContent = dem;
-        var classname = "header_card-items" + dem;
-        var link = "." + classname;
-        
-        var listnumber = listgiohang.querySelector(link);
+        if(soindex != null ){
+            var classname = "header_card-items" + soindex;
+            console.log(classname);
+            var link = "." + classname;
+            
+            var listnumber = listgiohang.querySelector(link);
             var productimg = giohang.querySelector("img");
             var productname = giohang.querySelector(".detail h2").textContent;
             var productgiatext = giohang.querySelector(".detail span").textContent;
@@ -130,12 +141,11 @@ document.addEventListener("DOMContentLoaded", function () {
             var productsoluong = parseInt(soluong);
             var productgia = parseInt(productgiatext);
             var thanhtien = productgia * productsoluong;
-        
             var giohangimg = listnumber.querySelector("img");
             var giohangname = listnumber.querySelector(".header_card-items-name");
             var giohanggia = listnumber.querySelector(".header_card-items-price");
             var giohangsoluong = listnumber.querySelector(".header_card-items-qnt");
-
+            tongthanhtoan = parseInt(document.querySelector(".header_card-muahang span").textContent);        
             var thanhtoansotien = okeluon.querySelector(".header_card-muahang span");
 
             tongthanhtoan += thanhtien;
@@ -147,30 +157,65 @@ document.addEventListener("DOMContentLoaded", function () {
             thanhtoansotien.textContent = tongthanhtoan;
 
 
-        if (listnumber) {
-            listnumber.style.display = "flex";
-            productsoluongtext.value ="";
+            if (listnumber) {
+                listnumber.style.display = "flex";
+                productsoluongtext.value ="";
+                soindex = null;
             
+                
+             }
+
+
         
-            
+
+
         }
 
+        else {
+            var classname = "header_card-items" + dem;
+            var link = "." + classname;
+            
+            var listnumber = listgiohang.querySelector(link);
+            var productimg = giohang.querySelector("img");
+            var productname = giohang.querySelector(".detail h2").textContent;
+            var productgiatext = giohang.querySelector(".detail span").textContent;
+            var productsoluongtext = giohang.querySelector(".soluong .nhapsoluong");
+            var productsoluong = parseInt(soluong);
+            var productgia = parseInt(productgiatext);
+            var thanhtien = productgia * productsoluong;
+            var giohangimg = listnumber.querySelector("img");
+            var giohangname = listnumber.querySelector(".header_card-items-name");
+            var giohanggia = listnumber.querySelector(".header_card-items-price");
+            var giohangsoluong = listnumber.querySelector(".header_card-items-qnt");
+            tongthanhtoan = parseInt(document.querySelector(".header_card-muahang span").textContent);        
+            var thanhtoansotien = okeluon.querySelector(".header_card-muahang span");
 
-        } else {
+            tongthanhtoan += thanhtien;
+            console.log(tongthanhtoan);
+            giohangimg.src = productimg.src;
+            giohangname.textContent = productname;
+            giohanggia.textContent = productgia;
+            giohangsoluong.textContent = productsoluong;
+            thanhtoansotien.textContent = tongthanhtoan;
+
+
+            if (listnumber) {
+                listnumber.style.display = "flex";
+                productsoluongtext.value ="";
+                
+            
+                
+            }
+
+
+        }
+        }
+         else {
             alert("Vui lòng nhập lại số lượng.");
         }
 
-
-
-
-        
-        
-
-
-
-        
-
     });
+    
     
     
 
@@ -211,7 +256,82 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // });
     
+    var nutxoa = document.querySelectorAll(".header_card-items-remove");
+    var soindex = null;
 
+    nutxoa.forEach(function (button, index) {
+        button.addEventListener("click", function (event) {
+            soindex = index + 1 ;
+            console.log(soindex);    
+            var notice = document.querySelector(".header_card-notice");
+            var notice_dem = document.querySelector(".header_card-notice").textContent;
+            dem = parseInt(notice_dem);
+            tongthanhtoan = parseInt(document.querySelector(".header_card-muahang span").textContent);
+            console.log("Tong thanh toan = ",tongthanhtoan);
+            var okeluon = document.querySelector(".header_card-list");
+            var thanhtoansotien = okeluon.querySelector(".header_card-muahang span");
+            var btnItem = event.target;
+            var product = btnItem.closest(".header_cardtt");
+
+            console.log("Sotientru = ",product);
+
+            product.style.display = "none";
+            var giohanggia = product.querySelector(".header_card-items-price").textContent;
+            var giohangsoluong = product.querySelector(".header_card-items-qnt").textContent;
+            var productgia = parseInt(giohanggia);
+            var productsoluong = parseInt(giohangsoluong);
+            var tongsotientru = productgia * productsoluong;
+            console.log("Sotientru = ",tongsotientru);
+
+            tongthanhtoan = tongthanhtoan - tongsotientru;
+        
+                
+            thanhtoansotien.textContent = tongthanhtoan;
+            console.log("dem = ",dem);
+
+            dem-=1;
+            console.log("dem = ",dem);
+
+            notice.textContent = dem;
+            
+            
+            
+        });
+    });
+
+
+
+
+    //thanh toan
+
+    const nutthanhtoan =document.querySelector(".nutthanhtoan");
+   
+
+    nutthanhtoan.addEventListener("click", function () {
+        console.log(soduhientai)
+
+        console.log(tongthanhtoan)
+
+        if(soduhientai>=tongthanhtoan){
+            soduhientai -=tongthanhtoan;
+
+            alert(`Bạn đã mua hàng thành công.\n Số tiền trả lại là: ${soduhientai}`);
+            soduhientai =0;
+            const balanceElement = document.querySelector(".sodu");
+            balanceElement.textContent = `Số dư: ${soduhientai}`;
+            for(let i =1;i<=dem ;i++)
+            Ơ
+
+
+        }
+        else alert("Số dư không đủ vui lòng nạp thêm tiền.");
+
+    });
+
+
+
+    
+    
 
 });
 
