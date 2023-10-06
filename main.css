@@ -55,9 +55,30 @@ h3 {
 }
 
 .content .header {
-    background-color: rgb(36, 36, 169) ;
+    background-color: rgb(36, 169, 45) ;
     color: aliceblue;
     padding: 10px 20px ;
+}
+.content .iconclosemuahang {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    
+}
+.timkiemmuahang{
+    display: flex;
+
+    justify-content: inherit;
+
+}
+.iconclosemuahang button {
+    background-color: transparent; /* Loại bỏ màu nền */
+    border: none; /* Loại bỏ viền */
+    outline: none; 
+    cursor: pointer;
+
 }
 .content .header h1 {
     margin: 0px;
@@ -106,7 +127,7 @@ h3 {
     
 }
 .content .list{
-    position: relative;
+    position: initial;
     background: white;
     padding: 20px;
     max-height: 300px ;
@@ -163,6 +184,207 @@ height: 50px;
 .oke .sodu{
     line-height: 28px !important;
 }
+.header_card{
+    text-align: center;
+
+    position: relative;
+
+}
+.header_card:hover .header_card-list{
+
+    display: block;
+}
+.header_card-list::after{
+    cursor: pointer ;
+    content: "";
+    position: absolute;
+    right: 4px;
+    top: -20px;
+    border-width: 20px;
+    border-style: solid;
+
+    border-color: transparent transparent white;
+
+}
+.header_card-list{
+    display: none;
+    position: absolute;
+    top:calc(100% + 8px);
+    right:-10px;
+    background-color: white;
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px #ccc;
+
+
+}
+.header_card-list::after{
+    content: "";
+    position: absolute;
+    right: 4px;
+    top: -30px;
+    border-width: 20px;
+    border-style: solid;
+
+border-color: transparent transparent white;}
+.header_card-list--no-card{
+
+    padding: 20px
+}
+.header_card-notice{
+    position: absolute;
+    padding: 2px 4px;
+    font-size: 14px;
+    color: rgb(36, 169, 45);
+    background-color: white;
+    border-radius: 40%;
+    
+    line-height: 0.7rem;
+    top: -6px;
+    right: -9px;
+
+
+}
+.header_card-list--no-card {
+
+}
+.header_card-list--no-card .header_card-no-card-img,
+.header_card-list--no-card .header_card-no-card-msg{
+    display: block;
+    margin-right: auto;
+    margin-left:auto ;
+
+}
+.header_card-no-card-img{
+    width: 70% ;
+    display: none;
+    
+
+}
+.header_card-no-card-msg{
+
+    display: none;
+}
+.header_card-list .header_card-no-card-msg {
+    color: black;
+    font-size: 15px;
+    margin-top: 10px;
+} 
+.header_card-heading{
+    text-align: left;
+    margin: 8px 0 8px 8px;
+    color: #999;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.header_card-list-items{
+    padding-left:0;
+    list-style: none;
+    overflow-y: scroll;
+    height: 80px;
+
+
+}
+
+.header_card-items {
+    display: flex;
+    margin-bottom: 5px;
+}
+.header_card-items1,
+.header_card-items2,
+.header_card-items3,
+.header_card-items4,
+.header_card-items5,
+.header_card-items6,
+.header_card-items7,
+.header_card-items8{
+    display: none;
+}
+
+.header_card-items-img{
+    width: 30px;
+    height: 30px;
+
+}
+
+.header_card-items-info {
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 12px;
+}
+
+.header_card-items-head-gia {
+    display: flex;
+    color: black;
+    height: 15px;
+    line-height: 35px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.header_card-items-wrap{
+    font-size: 10px;
+}
+
+.header_card-items-name {
+    
+    margin: 0;
+}
+
+.header_card-items-price {
+
+}
+
+.header_card-items-multiply {
+
+}
+
+.header_card-items-qnt {
+
+}
+.header_card-items-boxremove{
+  
+   right: 0px;
+    margin: 0;
+    top: ;
+}
+
+.header_card-items-remove {
+    font-size: 10px;
+    color: #8d5c5c;
+    background-color: transparent; /* Loại bỏ màu nền */
+    border: none; /* Loại bỏ viền */
+    outline: none; 
+    cursor: pointer;
+}
+.header_card-items-removeoke{
+
+    display: flex;
+    justify-content: space-between;
+}
+.header_card-muahang{
+
+}
+
+.header_card-muahang button{
+    font-size: 10px;
+    padding: 5px ;
+    border: 1px solid rgb(205, 32, 32);
+    background-color: red;
+    color:aliceblue;
+  
+    border: none; /* Loại bỏ viền */
+    outline: none; 
+    cursor: pointer;
+}
+.header_card-muahang{
+    color: black;
+    font-size: 10px;
+}
+
+
+
 .timkiem {
     
     background-color: rgb(5,-5,-48);
@@ -172,9 +394,10 @@ height: 50px;
    border-radius: 6px;
    margin-top: 5px;
    margin-left: 5px;
-   width: 30%;
+   width: 70%;
    font-size: 13px;
     opacity: 0.6;
+    
 }
 .giohang {
     position:fixed;
@@ -182,8 +405,10 @@ height: 50px;
     width: 300px;
     height: 250px;
     background-color: rgb(203, 63, 166);
-    border: 2px solid;
-    border-radius: 16px;
+    border: 1px solid;
+    border-radius: 16px;   
+     box-shadow: 0 2px 10px #ccc;
+
     
 }
 .giohang .anhnuoc{
@@ -218,14 +443,28 @@ height: 50px;
    
 }
 .themgiohangvadathang{
+    
     margin: 20px 40px;
 }
 .themgiohangvadathang button {
     padding : 5px;
     cursor: pointer;
+    border: 1px solid rgb(205, 32, 32);
+    border-radius: 6px;
+   
+
 }
+.nuthtemgiohang{
+    background-color: rgb(243, 170, 170);
+    color: rgb(136, 37, 37) ;
+}
+.nutmuahang{
+    background-color: red;
+    color:aliceblue;
+}
+
 .themgiohangvadathang .nuthtemgiohang:hover {
-    background-color: blanchedalmond;
+    background-color: rgb(194, 185, 167);
 }
 .themgiohangvadathang .nutmuahang:hover {
     background-color: rgb(233, 30, 30);

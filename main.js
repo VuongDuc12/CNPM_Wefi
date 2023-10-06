@@ -3,7 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputElement = document.querySelector(".sotiennhap");
     const balanceElement = document.querySelector(".sodu");
     
-    //Khoi tao so du ban dau
+
+
+    // Khởi tạo số dư ban đầu
     let balance = 0;
 
     // Cập nhật số dư ban đầu trên giao diện
@@ -26,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             inputElement.value = "";
         } else {
             // Hiển thị thông báo lỗi nếu giá trị nhập vào không hợp lệ
-            alert("Vui lòng nhập số tiền hợp lệ.");
+            alert("Vui lòng nhập vào số tiền.");
         }
     });
 });
@@ -90,6 +92,9 @@ document.addEventListener("DOMContentLoaded", function () {
       
     });
     
+
+
+
     const nutgiohang = document.querySelectorAll(".dathang");
     const giohang = document.querySelector(".giohang");
     
@@ -118,4 +123,134 @@ document.addEventListener("DOMContentLoaded", function () {
         giohang.style.display = "none";
 
     });
+    const iconclosemuahang =document.querySelector(".iconclosemuahang");
+   
+
+    iconclosemuahang.addEventListener("click", function () {
+        contentElement.style.display = "none";
+
+    });
+    var dem = 0;
+    var tongthanhtoan =0;
+    var listgiohang = document.querySelector(".header_card-list-items"); // Thêm "document."
+    var okeluon = document.querySelector(".header_card-list");
+    const nuthtemgiohang = document.querySelector(".nuthtemgiohang");
+
+    nuthtemgiohang.addEventListener("click", function () {
+        var productsoluongtext = giohang.querySelector(".soluong .nhapsoluong");
+
+        const soluong = parseInt(productsoluongtext.value);
+
+        // Kiểm tra xem giá trị nhập vào có hợp lệ hay không
+        if (!isNaN(soluong) && soluong > 0) {
+            dem+=1;
+
+        giohang.style.display = "none"; // Biến "giohang" chưa được định nghĩa ở đâu
+        var notice = document.querySelector(".header_card-notice"); // Thêm dấu chấm trước "header_card-notice"
+        notice.textContent = dem;
+        var classname = "header_card-items" + dem;
+        var link = "." + classname;
+        
+        var listnumber = listgiohang.querySelector(link);
+            var productimg = giohang.querySelector("img");
+            var productname = giohang.querySelector(".detail h2").textContent;
+            var productgiatext = giohang.querySelector(".detail span").textContent;
+            var productsoluongtext = giohang.querySelector(".soluong .nhapsoluong");
+            var productsoluong = parseInt(soluong);
+            var productgia = parseInt(productgiatext);
+            var thanhtien = productgia * productsoluong;
+        
+            var giohangimg = listnumber.querySelector("img");
+            var giohangname = listnumber.querySelector(".header_card-items-name");
+            var giohanggia = listnumber.querySelector(".header_card-items-price");
+            var giohangsoluong = listnumber.querySelector(".header_card-items-qnt");
+
+            var thanhtoansotien = okeluon.querySelector(".header_card-muahang span");
+
+            tongthanhtoan += thanhtien;
+            console.log(tongthanhtoan);
+            giohangimg.src = productimg.src;
+            giohangname.textContent = productname;
+            giohanggia.textContent = productgia;
+            giohangsoluong.textContent = productsoluong;
+            thanhtoansotien.textContent = tongthanhtoan;
+
+
+        if (listnumber) {
+            listnumber.style.display = "flex";
+            productsoluongtext.value ="";
+            
+        
+            
+        }
+
+
+        } else {
+            // Hiển thị thông báo lỗi nếu giá trị nhập vào không hợp lệ
+            alert("Vui lòng nhập lại số lượng.");
+        }
+
+
+
+
+        
+        
+
+
+
+        
+
+    });
+    
+    
+
+
+    // var dem = 0
+    // var listgiohang = product.querySelector(".header_card-list-items");
+    // nuthtemgiohang.addEventListener("click", function () {
+    //     dem +1;
+    //     giohang.style.display = "none";
+    //     var notice = product.querySelector("header_card-notice");
+    //     notice.textContent = dem;
+    //     var classname = "header_card-items"+dem
+    //     var link ="."+ classname
+        
+    //     var listnumber = listgiohang.querySelector(link);
+    //     listnumber.style.display = "block";
+
+
+    //     var productimg = giohang.querySelector("img");
+    //     var productname = giohang.querySelector(".detail h2").textContent; // Lấy nội dung của thẻ h2
+    //     var productgiatext = giohang.querySelector(".detail span").textContent;
+    //     var productsoluongtext = giohang.querySelector(".detail h3").textContent;
+    //     var productsoluong = parseInt(productsoluongtext);
+    //     var productgia = parseInt(productgiatext);
+    //     var thanhtien = productgia*productsoluong;
+
+    //         var giohangimg = giohang.querySelector(".anhnuoc img");
+    //         var giohangname = giohang.querySelector(".detail h2");
+    //         var giohanggia = giohang.querySelector(".detail span");
+    //         var giohangsoluong = giohang.querySelector(".detail soluong");
+            
+            
+    //         giohangimg.src = productimg.src;
+    //         giohangname.textContent = productname;
+    //         giohanggia.textContent = productgia;
+
+
+
+    // });
+    
+
+
 });
+
+
+
+
+
+
+
+
+
+
