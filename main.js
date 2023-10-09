@@ -2,21 +2,18 @@
 var soduhientai =0;
 var tongthanhtoan =0;
 var dem =0;
+var balance = 0;
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const inputElement = document.querySelector(".sotiennhap");
     const balanceElement = document.querySelector(".sodu");
-   
-
-
-    let balance = 0;
-
     balanceElement.textContent = `Số dư: ${balance}`;
 
     document.querySelector(".nap").addEventListener("click", function () {
         const inputValue = parseInt(inputElement.value);
 
-        if (!isNaN(inputValue) && inputValue > 0) {
+        if (!isNaN(inputValue) && inputValue > 0 && inputValue <1000000) {
             balance += inputValue;
             soduhientai = parseInt(balance);
 
@@ -24,7 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             inputElement.value = "";
         } else {
-            alert("Vui lòng nhập vào số tiền.");
+            alert("Vui lòng nhập vào số tiền nhỏ hơn 1000000.");
+            inputElement.value = "";
         }
     });
 });
@@ -317,10 +315,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             alert(`Bạn đã mua hàng thành công.\n Số tiền trả lại là: ${soduhientai}`);
             soduhientai =0;
+            balance = 0;
             const balanceElement = document.querySelector(".sodu");
-            balanceElement.textContent = `Số dư: ${soduhientai}`;
-            for(let i =1;i<=dem ;i++)
-            Ơ
+            balanceElement.textContent = `Số dư: ${balance}`;
+            
+            
 
 
         }
@@ -329,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-
+    
     
     
 
@@ -341,6 +340,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    // login
+    const login = document.querySelector(".login-card");
+    const quanlytaiday = document.querySelector(".clickquanly");
+    quanlytaiday.addEventListener("click", function () {
+        login.style.display = "block";
+    });
 
+    const iconcloselogin = document.querySelector(".iconcloselogin");
+    iconcloselogin.addEventListener("click", function () {
+        login.style.display = "none";
+    });
+
+    const dangnhap = document.querySelector(".login");
+    dangnhap.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        const username = document.querySelector(".login-card .username");
+        const password = document.querySelector(".login-card .password");
+        const saimk = document.querySelector(".login-card .saimk");
+        const container2 = document.querySelector(".container2");
+        const container = document.querySelector(".container");
+
+        const tk = username.value.toLowerCase();
+        const mk = password.value;
+        console.log(tk);
+        console.log(mk);
+        if (tk === "admin" && mk === "admin123") {
+            login.style.display = "none";
+            saimk.style.display = "none";
+            username.value = "";
+            password.value = "";
+            container.style.display = "none";
+            container2.style.display = "grid";
+
+
+        } else {
+            saimk.style.display = "block";
+            username.value = "";
+            password.value = "";
+
+        }
+    });
+
+    // end login
+
+
+    const logout = document.querySelector(".logout");
+    const container2 = document.querySelector(".container2");
+    const container = document.querySelector(".container");
+
+    logout.addEventListener("click", function (event) {
+        container2.style.display = "none";
+        container.style.display = "flex";
+
+    });
+});
 
 
