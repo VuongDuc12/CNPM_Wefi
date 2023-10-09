@@ -3,7 +3,7 @@ var soduhientai =0;
 var tongthanhtoan =0;
 var dem =0;
 var balance = 0;
-
+var soluongvuaban =0;
 
 document.addEventListener("DOMContentLoaded", function () {
     const inputElement = document.querySelector(".sotiennhap");
@@ -179,6 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var productgiatext = giohang.querySelector(".detail span").textContent;
             var productsoluongtext = giohang.querySelector(".soluong .nhapsoluong");
             var productsoluong = parseInt(soluong);
+            soluongvuaban+=productsoluong
             var productgia = parseInt(productgiatext);
             var thanhtien = productgia * productsoluong;
             var giohangimg = listnumber.querySelector("img");
@@ -255,13 +256,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // });
     
     var nutxoa = document.querySelectorAll(".header_card-items-remove");
+    var notice = document.querySelector(".header_card-notice");
+
     var soindex = null;
 
     nutxoa.forEach(function (button, index) {
         button.addEventListener("click", function (event) {
             soindex = index + 1 ;
             console.log(soindex);    
-            var notice = document.querySelector(".header_card-notice");
             var notice_dem = document.querySelector(".header_card-notice").textContent;
             dem = parseInt(notice_dem);
             tongthanhtoan = parseInt(document.querySelector(".header_card-muahang span").textContent);
@@ -278,6 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var giohangsoluong = product.querySelector(".header_card-items-qnt").textContent;
             var productgia = parseInt(giohanggia);
             var productsoluong = parseInt(giohangsoluong);
+            soluongvuaban -= productsoluong
             var tongsotientru = productgia * productsoluong;
             console.log("Sotientru = ",tongsotientru);
 
@@ -303,22 +306,51 @@ document.addEventListener("DOMContentLoaded", function () {
     //thanh toan
 
     const nutthanhtoan =document.querySelector(".nutthanhtoan");
-   
 
+    var doanhthu =7460000;
+    var luotmua =312;
+    var soluongban =784;
+    var soluongton = 1278;
     nutthanhtoan.addEventListener("click", function () {
-        console.log(soduhientai)
-
-        console.log(tongthanhtoan)
 
         if(soduhientai>=tongthanhtoan){
             soduhientai -=tongthanhtoan;
-
+            doanhthu+=tongthanhtoan;
+            luotmua +=1;
+            soluongban+=soluongvuaban;
+            soluongton -= soluongvuaban;
             alert(`Bạn đã mua hàng thành công.\n Số tiền trả lại là: ${soduhientai}`);
             soduhientai =0;
             balance = 0;
             const balanceElement = document.querySelector(".sodu");
             balanceElement.textContent = `Số dư: ${balance}`;
-            
+            const xoaall =document.querySelectorAll(".header_cardtt");
+            const thanhtoansotien = document.querySelector(".header_card-muahang span");
+
+            xoaall.forEach(function (cardtt) {
+
+                console.log(cardtt);
+                cardtt.style.display = "none";
+                dem =0;
+                notice.textContent = dem;    
+                tongthanhtoan = 0;                           
+                thanhtoansotien.textContent = tongthanhtoan;
+
+            });   
+            const luongtonthongke = document.querySelector(".luongton h3");
+            const luongmuathongke = document.querySelector(".luongmua h3");
+            const dabanthongke = document.querySelector(".daban h3");
+            const doanhthuthongke = document.querySelector(".doanhthu h3");
+
+            luongtonthongke.textContent = soluongton;
+            luongmuathongke.textContent = luotmua;
+            dabanthongke.textContent = soluongban;
+            doanhthuthongke.textContent = doanhthu;
+            soluongvuaban = 0;
+
+
+
+
             
 
 
