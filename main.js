@@ -5,6 +5,7 @@ var dem =0;
 var balance = 0;
 var soluongvuaban =0;
 
+
 document.addEventListener("DOMContentLoaded", function () {
     const inputElement = document.querySelector(".sotiennhap");
     const balanceElement = document.querySelector(".sodu");
@@ -14,9 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const inputValue = parseInt(inputElement.value);
 
         if (!isNaN(inputValue) && inputValue > 0 && inputValue <1000000) {
+            balance = soduhientai;
             balance += inputValue;
             soduhientai = parseInt(balance);
-
+            console.log(balance);
             balanceElement.textContent = `Số dư: ${balance}`;
 
             inputElement.value = "";
@@ -299,18 +301,65 @@ document.addEventListener("DOMContentLoaded", function () {
             
         });
     });
+    var doanhthu =7460000;
+    var luotmua =312;
+    var soluongban =784;
+    var soluongton = 1278;
+
+    const nutmuahang =document.querySelector(".nutmuahang");
+
+   
+    nutmuahang.addEventListener("click", function () {
+        const giaca =document.querySelector(".giaca").textContent;
+        const nhapsoluong =document.querySelector(".nhapsoluong");
+        const soluongmuangay = parseInt(nhapsoluong.value);
+
+        const balance =document.querySelector(".nhapsoluong");
+
+        var tongthanhtoantructiep = giaca*soluongmuangay;
+        console.log(tongthanhtoantructiep)
+        console.log(soduhientai)
+
+        if(soduhientai>=tongthanhtoantructiep){
+            soduhientai -=tongthanhtoantructiep;
+            doanhthu+=tongthanhtoantructiep;
+            luotmua +=1;
+            soluongban+=soluongmuangay;
+            soluongton -= soluongmuangay;
+            alert(`Bạn đã mua hàng thành công.\n Số tiền còn lại là là: ${soduhientai}`);
+            
+            
+            const balanceElement = document.querySelector(".sodu");
+            balanceElement.textContent = `Số dư: ${soduhientai}`;
+            const xoaall =document.querySelectorAll(".header_cardtt");
+            const thanhtoansotien = document.querySelector(".header_card-muahang span"); 
+            const luongtonthongke = document.querySelector(".luongton h3");
+            const luongmuathongke = document.querySelector(".luongmua h3");
+            const dabanthongke = document.querySelector(".daban h3");
+            const doanhthuthongke = document.querySelector(".doanhthu h3");
+
+            luongtonthongke.textContent = soluongton;
+            luongmuathongke.textContent = luotmua;
+            dabanthongke.textContent = soluongban;
+            doanhthuthongke.textContent = doanhthu;
+            soluongvuaban = 0;
+           
+            nhapsoluong.value = "";
 
 
+            giohang.style.display = "none";
 
+
+        }
+        else alert("Số dư không đủ vui lòng nạp thêm tiền.");
+
+    });
 
     //thanh toan
 
     const nutthanhtoan =document.querySelector(".nutthanhtoan");
 
-    var doanhthu =7460000;
-    var luotmua =312;
-    var soluongban =784;
-    var soluongton = 1278;
+    
     nutthanhtoan.addEventListener("click", function () {
 
         if(soduhientai>=tongthanhtoan){
@@ -332,7 +381,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(cardtt);
                 cardtt.style.display = "none";
                 dem =0;
-                notice.textContent = dem;    
+                notice.textContent = dem;  
+
                 tongthanhtoan = 0;                           
                 thanhtoansotien.textContent = tongthanhtoan;
 
@@ -347,12 +397,6 @@ document.addEventListener("DOMContentLoaded", function () {
             dabanthongke.textContent = soluongban;
             doanhthuthongke.textContent = doanhthu;
             soluongvuaban = 0;
-
-
-
-
-            
-
 
         }
         else alert("Số dư không đủ vui lòng nạp thêm tiền.");
@@ -373,6 +417,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
+
+
     // login
     const login = document.querySelector(".login-card");
     const quanlytaiday = document.querySelector(".clickquanly");
